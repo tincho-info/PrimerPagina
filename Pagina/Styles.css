@@ -1,0 +1,510 @@
+/* Todos */
+:root{
+  box-sizing: border-box;
+  line-height: 1.3;
+  font-family: sans-serif;
+  background: #faf3dd;
+  color: black;
+}
+
+*,
+*::after,
+*::before{
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+header{
+padding:2rem; 
+width: 100%;
+text-align: center;
+background-image: linear-gradient(hsl(268, 68%, 50%) , rgba(0, 255, 255, 0.4));
+font-size: 1.25rem;
+}
+/* header{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  padding:2rem; 
+  width: 100%;
+  height: 6rem;
+  background-color: blueviolet;
+  color: white;
+  font-size: 1.25rem;
+}
+@media (max-width: 1000px){
+  header{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+} */
+header{
+  position: relative;
+  height: 8.5rem;
+  display: block;
+}
+header img{
+  position: absolute;
+  width: 5em;
+  height: 5em;
+  left: 1em;
+  bottom: 1em;
+  top: 1em;
+  border: solid 0.2em black;
+  border-radius: 1em;
+}
+header span{
+  position: absolute;
+  top: 36.1%;
+  right: 10%;
+  left: 10%;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  color: black;
+  letter-spacing: 0.5em;
+  font-size: 1.6em;
+}
+@media (max-width: 800px) {
+  header span {
+    display: block;
+    letter-spacing: 0.1em;
+    left: 15%;
+    top: 30%;
+  }
+}
+@media (max-width: 470px) {
+  header{
+    height: 5rem;
+  }
+  header span {
+    display: block;
+    letter-spacing: 0.1em;
+    font-size: 1em;
+    left: 15%;
+    top: 25%;
+    width: 10em;
+    left: auto;
+    right: 25%;
+  }
+  header img{
+    width: 3em;
+    height: 3em;
+    top: 0.5em;
+  }
+}
+@media (max-width: 400px) {
+  header{
+    height: 5rem;
+  }
+  header span {
+    display: block;
+    letter-spacing: 0.1em;
+    font-size: 1em;
+    left: 15%;
+    top: 19.5%;
+    width: 10em;
+    left: auto;
+    right: 15%;
+  }
+  header img{
+    width: 3em;
+    height: 3em;
+    top: 0.5em;
+  }
+}
+/* .SubHeader{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  background-color: burlywood;
+}
+.SubHeader>.Inicio{
+  width: 6.45em;
+  text-align: left;
+}
+.SubHeader>.Hard{
+  width: 4.5em;
+  text-align: left;
+  margin-left: 0.4em;
+}
+.SubHeader>.Soft{
+  width: 4.5em;
+  text-align: left;
+  margin-left: 0.4em;
+}
+.SubHeader>.Inicio:hover{
+  background-color: rgb(236, 158, 56);
+}
+.SubHeader>.Hard:hover{
+  background-color: rgb(236, 158, 56);
+}
+.SubHeader>.Soft:hover{
+  background-color: rgb(236, 158, 56);
+} */
+.SubHeader{
+  position: sticky;
+  top: 0.1px;
+  background-color: burlywood;
+}
+.Menu{
+  list-style: none;
+  display: flex;
+}
+.Menu-item{
+  position: relative;
+  transition-property: all;
+  transition-duration: 1s;
+}
+.Menu>.Menu-item i{
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+}
+.Menu-item:hover{
+  background: rgba(0,0,0,0.5);
+}
+.Menu-link{
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 0.5em 2em;
+}
+h1{
+text-align: center;
+box-shadow: 1px 1px 15px 5px;
+border-style: solid;
+border-radius: 50px;
+background-color: orangered;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 2em;
+font-weight: 500;
+letter-spacing: 0.5rem;
+}
+h2{
+text-align: center;
+box-shadow: 1px 1px 15px 5px;
+border-style: inherit;   
+border-radius: 10px 30px;
+background-color: red;
+font-family: 'Times New Roman', Times, serif;
+font-weight: 600;
+}
+h3{
+text-align: center;
+box-shadow: 1px 1px 15px 5px;
+border-style: hidden;
+border-radius: 30px 10px;
+background-color: green;
+font-family: 'Courier New', Courier, monospace;
+font-weight: 600;
+}
+h4{
+text-align: center;
+box-shadow: 1px 1px 15px 5px;
+border-style: hidden;
+border-radius: 30px 30px;
+background-color: rgb(4, 156, 161);
+font-family: 'Courier New', Courier, monospace;
+font-weight: 600;
+}
+h5, h6{
+text-align: center;
+box-shadow: 1px 1px 15px 5px;
+border-style: hidden;
+background-color: violet;
+font-family: 'Courier New', Courier, monospace;
+font-weight: 600;
+}
+/* .Separador{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  background-color:black;
+}
+.Separador>.nav>{
+  font-size: 1.2em;
+  color: white;
+}
+.Separador>.Nav>.Subir:hover{
+  background-color: hsl(30,100%,50%);
+}
+.Separador>.Nav>.Extras:hover{
+  background-color: hsl(30,100%,50%);
+}
+.Separador>.Nav>.Contacto:hover{
+  background-color: hsl(30,100%,50%);
+} */
+.Separador{
+  position: relative;
+  background-color:black;
+  padding: 0.5em;
+}
+.MenuS{
+  list-style: none;
+  display: flex;
+}
+.Menu-itemS{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left:0;
+  right:0;
+  transition-property: all;
+  transition-duration: 1s;
+}
+.MenuS>.Menu-itemS i{
+  position: absolute;
+  top: 0.5em;
+  color: red;
+  left: 0;
+}
+.Menu-itemS:hover{
+  background: rgba(255,255,255,0.4);
+}
+.Menu-linkS{
+  position: relative;
+  left: 0.4em;
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 0.5em 1em;
+
+  
+}
+footer{
+  background-color: rgb(214, 214, 219);
+  padding: 0.5em;
+}
+footer>img{
+  display: block;
+  margin: auto;
+}
+/* Principal */
+.Imagen{
+  margin: 0.5em 1em;
+  text-align: center;
+  display: block;
+  max-width: 100%;
+}
+.imagenP1{
+  width: 45em;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  border: 0.6em solid black;
+}
+.Primera{
+  display: block;
+  margin: 1em 0.8em;
+  text-align: center;
+  font-size: 1.1em;
+}
+.Segunda{
+  text-align: left;
+}
+.Segunda>.Parrafo{
+  margin: 0.5em 0.8em;
+  line-height: 1.4;
+}
+.Segunda>.Strong{
+  display: block;
+  background-color: rgb(190, 140, 64);
+  width: 9.1em;
+  margin: 0 0.5em;
+  font-size: 1.4em;
+}
+.Tercera{
+  margin: 0.5em 2em;
+  text-align: left;
+  line-height: 1.4;
+}
+.Tercera>.Lista2:hover {
+  padding: 1em;
+}
+.Hardware,
+.Software{
+  margin: 0.5em 0.8em;
+  line-height: 1.4;
+}
+.Hardware a{
+  display: inline-block;
+}
+.Hardware a:hover{
+  background-color: rgb(0, 0, 0);
+}
+.Software a{
+  display: inline-block;
+}
+.Software a:hover{
+  background-color: rgb(0, 0, 0);
+}
+.Software>.Lista{
+  margin: 0 0.96em;
+}
+.Software span{
+  display: inline-block;
+}
+.Cuarta{
+  margin: 0.5em 0.8em;
+}
+.Cuarta>.Parrafo{
+  margin: 0.5em 0;
+}
+.Cuarta details p{
+  margin: 0.3em 1em;
+}
+mark{
+  background-color: #faf3dd;
+  font-style: italic;
+  font-weight: 700;
+}
+/* Principal */
+/* Hardware */
+.Imagenes{
+  display: block;
+  max-width: 100%;
+  margin: 0.5em 0.2em;
+  text-align: center;
+}
+.imagenH1,
+.imagenH2{
+  width: 38em;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.5em;
+  border: 0.6em solid black;
+  }
+.PrimeraH{
+  margin: 0.5em 0.8em;
+  line-height: 1.4;
+}
+.PrimeraH>.Lista{
+  margin: 0 0.96em;
+}
+.PrimeraH>.Lista img{
+  display: block;
+  border: 0.3em solid black;
+  float: right;
+  width: 15em;
+  height: auto;
+  } 
+.ParrafoH{
+  text-align: left;
+  margin: 0.5em 0.8em;
+  line-height: 1.4;
+}
+/* Hardware */
+/* Software */
+
+/* .Imagenes{
+  display: block;
+  max-width: 100%;
+  margin: 0.5em 0.2em;
+  text-align: center;
+} */
+.imagenS1,
+.imagenS2{
+  width: 38em;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0.5em;
+  border: 0.45em solid black;
+}
+.ParrafoS{
+  text-align: left;
+  margin: 0.5em 0.8em;
+  line-height: 1.4;
+}
+.ParrafoS img{
+  display: block;
+  border: 0.3em solid black;
+  float: right;
+  width: 15em;
+  height: auto;
+}
+.PrimeraS>.Lista{
+  margin: 0.5em 2em;
+  line-height: 1.4;
+}
+.SegundaS>.Lista{
+  margin: 0.5em 2.3em;
+}
+.TerceraS>.Lista{
+  margin: 0.5em 1.3em;
+}
+.TerceraS>.Lista dfn{
+  margin: 0 1.3em;
+  line-height: 1.4;
+}
+/* Software */
+/* Contacto */
+.Body{
+  background-color: #faf3dd;
+  color: black;
+}
+.Imagen>.imagenC{
+  width: 30em;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  border: 0.6em solid black;
+}
+.TituloC{
+  text-transform: uppercase;
+  box-shadow: none;
+  border-style: none;
+}
+.ParrafoC{
+  text-align: left;
+  display: block;
+  margin: 1em 0.8em;
+  font-size: 1.5em;
+  line-height: 2;
+}
+/* Contacto */
+/* Extras */
+.Imagen>.imagenE{
+  width: 40em;
+  max-width: 100%;
+  height: 30em;
+  border-radius: 0.5em;
+  border: 0.6em solid black;
+}
+.PrimeraE{
+  text-align: left;
+  display: block;
+  margin: 1em 0.8em;
+  font-size: 1em;
+  line-height: 2;
+}
+.Calendario {
+  display: block; 
+  text-align: center;
+  padding: 1em;
+  max-width: 100%;;
+}
+textarea{
+  display: block;
+  width: 100%;
+  height: 4em;
+  resize: none;
+}
+.Box{
+  width: 100%;
+  height: auto;
+  background-color: rgba(255, 100, 0, 0.50);
+  margin-bottom: -0.5em;
+}
+.Box>.Juego{
+  width: 70%;
+  padding: 0.5em;
+  margin: 1em auto;
+}
+.Box>.Juego>.lastResult {
+  color: white;
+  padding: 3px;
+}
+/* Extras */

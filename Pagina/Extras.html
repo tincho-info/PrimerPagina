@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html Lang="es">
+	<head><!--meta datos-->
+        <meta charset="UTF-8"><!--=chaset=atributos-->
+        <meta name="description" content="La Tecnología">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Extras</title>
+        <!--<link rel="shortcut icon" href="Imagenes/Logo.jpg">-->
+        <link rel="apple-touch-icon" sizes="180x180" href="Imagenes/Nueva carpeta/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="Imagenes/Nueva carpeta/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="Imagenes/Nueva carpeta/favicon-16x16.png">
+        <link rel="manifest" href="Imagenes/Nueva carpeta/site.webmanifest">
+        <link rel="mask-icon" href="Imagenes/Nueva carpeta/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="Styles.css">
+        <script src="https://kit.fontawesome.com/00d3dcb888.js" crossorigin="anonymous"></script>
+    </head>
+    <body id="Subir">
+        <div id="reloj" style="font-size:20px; background-color: black;color: white;"></div>  
+        <header>
+            <img class="Portada" src="./Imagenes/Nueva carpeta/android-chrome-512x512.png" alt="Logo" >
+            <span>Tecnología en Informática</span>
+        </header>
+        <nav class="SubHeader">
+            <ul class="Menu">
+                <li class="Menu-item"><i class="fas fa-home"></i><a class="Menu-link" href="Principal.html">Inicio</a></li>
+                <li class="Menu-item"><i class="fas fa-external-link-square-alt"></i><a class="Menu-link" href="Hardware.html">Hardware</a></li>
+                <li class="Menu-item"><i class="fas fa-external-link-square-alt"></i><a class="Menu-link" href="Software.html">Software</a></li>
+            </ul>
+        </nav>
+        <div class="Imagen">
+            <img class="imagenE" src="Imagenes/Extras.jpg" alt="Portada">
+        </div>
+        <h3>Formulario</h3>
+        <form class="PrimeraE">
+            <fieldset>
+                <legend>Tus Datos Personales</legend>
+                <div class="Form-section">
+                    Nombre: <input class="Form-input" type="text" name="name" placeholder="Ej: Pepe">
+                </div>
+                <div class="Form-section">
+                    Usuario: <input class="Form-input" type="text" name="username" placeholder="Ej: Antoñes">
+                </div>
+                <div class="Form-section">
+                    Correo: <input class="Form-input" type="email" placeholder="PepeAntoñes@">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Opiniones</legend>
+                <div>Te Fue Util:
+                    <label>No<input type="range">SI</label>
+                </div>
+                <div>
+                    Comentarios:<textarea>Ingrese Comentarios</textarea>
+                </div>
+            </fieldset>
+            <input type="submit" value="Enviar">
+        </form>
+        <h4>Adivina el Número</h4>
+        <section class="Box">
+            <section class="Juego">
+                <p>Hemos seleccionado un número aleatorio entre 1 y 100. Vea si puede adivinarlo en 10 turnos o menos. Le diremos si su suposición fue demasiado alta o demasiado baja.</p>
+                <div class="form">
+                <label for="guessField">Ingrese un Número: </label><input type="text" id="guessField" class="guessField">
+                <input type="submit" value="Enviar Número" class="guessSubmit">
+                </div>
+                <div class="resultParas">
+                    <p class="guesses"></p>
+                    <p class="lastResult"></p>
+                    <p class="lowOrHi"></p>
+                </div>
+            <script>
+                let randomNumber = Math.floor(Math.random() * 100) + 1;
+                const guesses = document.querySelector('.guesses');
+                const lastResult = document.querySelector('.lastResult');
+                const lowOrHi = document.querySelector('.lowOrHi');
+                const guessSubmit = document.querySelector('.guessSubmit');
+                const guessField = document.querySelector('.guessField');
+                let guessCount = 1;
+                let resetButton;
+                guessField.focus();
+                function checkGuess() {
+                    let userGuess = Number(guessField.value);
+                    if (guessCount === 1) {
+                        guesses.textContent = 'Números previos: ';
+                    }
+                    guesses.textContent += userGuess + ' ';
+                    if (userGuess === randomNumber) {
+                        lastResult.textContent = '¡Felicidades! Lo lograste!';
+                        lastResult.style.backgroundColor = 'green';
+                        lowOrHi.textContent = '';
+                        setGameOver();
+                    } else if (guessCount === 10) {
+                        lastResult.textContent = '!!!GAME OVER!!!'+ ' El Número es: '+randomNumber;
+                        setGameOver();
+                    } else {
+                        lastResult.textContent = 'Incorrecto!';
+                        lastResult.style.backgroundColor = 'red';
+                        if(userGuess < randomNumber) {
+                            lowOrHi.textContent = 'El Número es demasiado bajo!';
+                        } else if(userGuess > randomNumber) {
+                            lowOrHi.textContent = 'El Número es demasiado alto!';
+                        }
+                    }
+                    guessCount++;
+                    guessField.value = '';
+                    guessField.focus();
+                }
+                guessSubmit.addEventListener('click', checkGuess);
+                function setGameOver() {
+                    guessField.disabled = true;
+                    guessSubmit.disabled = true;
+                    resetButton = document.createElement('button');
+                    resetButton.textContent = 'Jugar de nuevo';
+                    document.body.append(resetButton);
+                    resetButton.addEventListener('click', resetGame);
+                }
+                function resetGame() {
+                    guessCount = 1;
+                    const resetParas = document.querySelectorAll('.resultParas p');
+                    for (let i = 0 ; i < resetParas.length ; i++) {
+                        resetParas[i].textContent = '';
+                    }
+                    resetButton.parentNode.removeChild(resetButton);
+                    guessField.disabled = false;
+                    guessSubmit.disabled = false;
+                    guessField.value = '';
+                    guessField.focus();
+                    lastResult.style.backgroundColor = 'white';
+                    randomNumber = Math.floor(Math.random() * 100) + 1;
+                }
+            </script>
+            </section>
+        </section>
+        <div class="Separador">
+            <nav class="Nav">
+                <ul class="MenuS">
+                    <li class="Menu-itemS"><i class="fas fa-chevron-circle-up"></i><a class="Menu-linkS" href="#Subir">Subir</a></li>
+                    <li class="Menu-itemS"><i class="fas fa-address-card"></i><a class="Menu-linkS" href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <footer>
+            <img src="Imagenes/Nueva carpeta (3)/LogoSample_ByTailorBrands-removebg-preview-alt.png">
+        </footer>
+    </body>
+    <script src="scripts.js"></script>
+</html>
